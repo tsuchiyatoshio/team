@@ -1,53 +1,53 @@
-�e�J�[�l���ɂ���
-(10��6��Python�̂��̂������̂ŁA����������)
+各カーネルについて
+(10個中6個がPythonのものだったので、それらを見た)
 
-��̕��قǁA�������Ă��邩���킩��₷���B
-���̕��͂悭�킩��Ȃ��B
+上の方ほど、何をしているかがわかりやすい。
+下の方はよくわからない。
 
-���eKernel�ɂ���
+■各Kernelについて
 1. Price analysis and Linear Regression
- �Ƃ̉��i��\������
+ 家の価格を予測する
 
 
 2. Predictions with XGboost and Linear Regression
- �Ƃ̉��i��\������B(��̂Ƃ͕ʂ̃f�[�^�Z�b�g)
- XGboost��Linear Regression���g�����\���B
+ 家の価格を予測する。(上のとは別のデータセット)
+ XGboostとLinear Regressionを使った予測。
  
- XGboost�̕������\���悩�����B
+ XGboostの方が性能がよかった。
  
 
 3. In-Depth Simple Linear Regression
- �w�l����e-�R�}�[�X�ŔN��Ƃ������߂̑��ւ𒲂ׂ�B
-  -> �N��Ɗ��߂镞�̎�ނ��������`�̃��f�����쐬�ł����B
-    -> �������߂̓x�����𐔒l�����Ă���(���ނł͂Ȃ��A���l�����߂Ă���)�B
+ 婦人服のe-コマースで年齢とおすすめの相関を調べる。
+  -> 年齢と勧める服の種類を示す線形のモデルが作成できた。
+    -> おすすめの度合いを数値化している(分類ではなく、数値を求めている)。
 
 
 4. Linear regression (LB: 0.0091176)
-  Two Sigma Financial Modeling Challenge �Ƃ����Acompetition�̂���(�f�[�^�Z�b�g���_�E�����[�h�ł��Ȃ�����)
-  �ڍׂ͕s���B
+  Two Sigma Financial Modeling Challenge という、competitionのもの(データセットがダウンロードできなかった)
+  詳細は不明。
 
 5. Simple One Feature Linear Regression
-  �����_���ɍ쐬�����A���`��A�p�̃f�[�^�Z�b�g����͂������́B
-  x����͂Ƃ����Ƃ��Ay�����߂�B
-  competition�ł͂Ȃ��B
+  ランダムに作成した、線形回帰用のデータセットを解析したもの。
+  xを入力としたとき、yを求める。
+  competitionではない。
   
 6. Revising linear regression using housing prices
-  �Ƃ̉��i�̗\�z�����Ă���H
+  家の価格の予想をしている？
 
-�����ʓ_
-  ��{�I�ɐ��l��\�����悤�Ƃ�����ɓK�p����Ă���B
-  ���Ƃ��Ă͉�A���ɂȂ�B
+■共通点
+  基本的に数値を予測しようとする問題に適用されている。
+  問題としては回帰問題になる。
  
-���s���_
-  ���̉�A�A���S���Y���Ƃ̎g������
-  �e��A�A���S���Y����K�p���A�ǂ̐��x���悢���ǂ��������Ĕ��f���Ă���H
+■不明点
+  他の回帰アルゴリズムとの使い分け
+  各回帰アルゴリズムを適用し、どの精度がよいかどうかを見て判断している？
 
 
-���`��A
+線形回帰
 https://ja.wikipedia.org/wiki/%E7%B7%9A%E5%BD%A2%E5%9B%9E%E5%B8%B0
 
-�����̎�
+次元の呪い
 https://ja.wikipedia.org/wiki/%E6%AC%A1%E5%85%83%E3%81%AE%E5%91%AA%E3%81%84
 https://qiita.com/tn1031/items/96e7131cd41df1aebe85
 
-�����̎􂢂��������ɂ́A�ړI�ϐ��̎�ނ����炵���ق����悢�H
+次元の呪いを回避するには、目的変数の種類を減らしたほうがよい？
