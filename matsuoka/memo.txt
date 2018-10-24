@@ -46,3 +46,8 @@
 線形回帰
 https://ja.wikipedia.org/wiki/%E7%B7%9A%E5%BD%A2%E5%9B%9E%E5%B8%B0
 
+次元の呪い
+https://ja.wikipedia.org/wiki/%E6%AC%A1%E5%85%83%E3%81%AE%E5%91%AA%E3%81%84
+https://qiita.com/tn1031/items/96e7131cd41df1aebe85
+
+次元の呪いを回避するには、目的変数の種類を減らしたほうがよい？
