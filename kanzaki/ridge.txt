@@ -1,0 +1,60 @@
+〇 dameraulevenshtein
+　レーベンシュタイン距離：
+　・ある文字列から別の文字列にする際に挿入・削除・置換を何回行うかに基づいて、文字列の類似度を測る尺度
+　・挿入・削除・置換の3種類のみ
+　Damerau-Levenshtein距離：
+　・レーベンシュタイン距離と基本的な概念は同じ
+　・挿入・削除・置換・転置の4種類
+　標準化：
+　比較する文字列の最大の長さで距離を割る
+
+〇 preprocess_regex
+　・nameから数字付近を抜き出す
+　　数字が値段に相関があるからと思われる
+
+〇 brands_filling
+　・brand_nameがカラの行にそれっぽいものを入れる
+　・name, item_descriptionからそれっぽいワードを引っ張って代入
+
+〇 preprocess_pandas
+　・priceが0の行を削除
+　・y_train=ln(1+'price')
+　・category_name：(A/B/Cの形式)
+　　nullを削除
+　　general_cat:A, subcat_1:B, subcat_2:C, gen_subcat1:A/B　に分けて列を作成
+　　さらにitem_condition_idをくっつける
+　・brand_nameのnullを削除した列を追加
+　・nameのnullを空白で埋める
+　・brand_nameのnullを空白で埋める
+　・item_descriptionのnullを空白で埋める
+　
+〇 main
+　・preprocess_pandas
+　　merge:
+　　y_train:priceのみ並べたtrain
+　　nrow_train:trainの行数
+  ・vectorizer = FeatureUnion
+　　複数の識別機を連結
+　　HashingVectorizer,CountVectorizer:stopwords以外の単語の発生頻度をカウント
+　　文字列は↑で発生頻度をカウント
+　　True/False,数パターンしかないIDはOne-hotへ
+　・TfidfTransformer
+　　tf:Term Frequency
+　　　その単語 (Term) の、そのドキュメントでの出現回数 / そのドキュメントで出現したすべての単語の総数 
+　　　単語がその文書で何度も使われていると大きくなる。
+　　idf:Inverse Document Frequency
+　　　dfの逆数。log(1/df)
+　　df:Document Frequency
+　　　その単語が出現したドキュメントの数 / 全ドキュメント数
+　　　単語が広いトピックで用いられていると大きくなる
+　・intersect_drop_columns
+　　発生頻度の低いwordをdropして次元削減
+
+● 考察
+・価格予想なので回帰分析
+・使用するラベルが数値データより言語が多いため線形回帰が困難->Ridge or Lasso
+・数値より言語データが多いため、そのままone-hot変換すると次元が多くなりすぎる
+・商品名や説明文の中に現れる数値、Wordが価格に相関がある
+・全Wordを分解すると次元が多くなりすぎる、発生頻度が少ないものは
+　価格との相関を分析するために十分なデータが取れないため、発生頻度が多いもののみ残す
+・次元削減をWordの発生頻度によって行うことでLassoではなくRidge
