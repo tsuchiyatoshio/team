@@ -1,0 +1,6 @@
+Anaconda Promptから ligthgbm をインストールする。
+ conda install -c conda-forge lightgbm
+
+Anaconda Promptから xgboost をインストールする。
+ conda install -c conda-forge py-xgboost
+

@@ -1,0 +1,71 @@
+LightGBMアルゴリズムについて
+ Microsoftが開発した、Gradient Boostingアルゴリズムを扱うフレームワーク。Gradient BoostingアルゴリズムはDecision Treeを元にしている。
+複数の決定木を逐次的に構築したアンサンブル学習をする。類似のアルゴリズムとして、XGBoostがある。
+使用用途はランクづけや分類など、回帰にも利用できる。
+
+
+LightGBM with Simple Features
+ Home Credit Default Riskというコンテストのカーネル
+
+ データがRDBのテーブルのように与えられており、まずはこれをくっつけて訓練データなどを生成している。
+ 
+
+preprocessing, model averaging by xgb + lgb [1.39]
+Santander Value Prediction Challenge というコンテストのカーネル
+ データサイズが大きいため、とても時間がかかる。
+
+
+勾配ブースティング
+アンサンブル学習の一種。ブースティングは逐次的に弱学習器を構築していく手法。
+弱い分類器に繰り返し学習させ、それを最終的な強い分類器の一部とするもの。
+
+
+弱学習器
+弱い学習機は、真の分類と若干の相関のある分類器
+ <-> 強学習器 : 真の分類とよく相関する分類器
+
+アンサンブル学習
+個々に別々の学習器として学習させたものを、融合させる事によって、未学習のデータに対しての予測能力を向上させるための学習。
+弱学習器を使用して、多数決をとることができる。
+1つの分類器が間違った分類をしても、半分以上の分類器が正しければ、正しい分類をすることができる。
+
+ブースティングと対比される手法としてバギングがある。
+
+バギング
+学習データの情報を全て使うのでなく、その一部を使用して学習し、最後に結合させる方法。
+学習データから、一部ずつサンプルを抽出する。
+サンプルを元に弱学習器を構築する。
+複数の弱学習器から最終的な学習器(学習結果)を構築する。
+サンプルの抽出と弱学習器の構築が並列に行えることがブースティングとの違い。
+(ブースティングは逐次的に弱学習器を構築する)
+
+
+
+Microsoft/LightGBM
+https://github.com/Microsoft/LightGBM
+
+
+Welcome to LightGBM’s documentation!
+https://lightgbm.readthedocs.io/en/latest/
+
+Python: LightGBM を使ってみる
+https://blog.amedama.jp/entry/2018/05/01/081842
+
+LightGBM ハンズオン - もう一つのGradient Boostingライブラリ
+https://qiita.com/TomokIshii/items/3729c1b9c658cc48b5cb
+
+Python 勾配ブースティングにおけるパラメータと調整方法について
+http://rautaku.hatenablog.com/entry/2018/01/13/190818
+
+勾配ブースティングについてざっくりと説明する
+http://smrmkt.hatenablog.jp/entry/2015/04/28/210039
+
+ブースティング
+https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%BC%E3%82%B9%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0
+
+アンサンブル学習
+https://spjai.com/ensemble-learning/
+
+【入門】アンサンブル学習の代表的な２つの手法とアルゴリズム
+https://spjai.com/ensemble-learning/
+
