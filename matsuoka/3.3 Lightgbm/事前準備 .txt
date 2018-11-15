@@ -4,3 +4,12 @@ Anaconda Promptから ligthgbm をインストールする。
 Anaconda Promptから xgboost をインストールする。
  conda install -c conda-forge py-xgboost
 
+□備考
+PCによっては、pipコマンドの方がよいかもしれない。
+ただし、condaとpipを混ぜると危険との指摘もあるため、condaが使えないための代替策として使うのがよさそう
+
+(初回のみ)
+pip install --upgrade pip
+
+pip install lightgbm
+pip install xgboost
