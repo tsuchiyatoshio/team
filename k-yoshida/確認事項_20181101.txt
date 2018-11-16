@@ -1,0 +1,62 @@
+MeCab：形態素解析
+mecab-ipadic-NEologd : Neologism dictionary for MeCab
+neologism：新語、新語の創造
+
+Word2Vec
+http://www.randpy.tokyo/entry/word2vec_skip_gram_model
+
+歪度、尖度の指標値について
+http://sd.eb.u-tokai.ac.jp/kuukan/%E7%B5%B1%E8%A8%88%E5%87%A6%E7%90%86.pdf
+
+(晦日さんのコードから抜粋)
+#DataFrameから相関係数を算出
+df_train.corr()
+
+# lambda式 lambda 引数:処理内容
+# skew:データセットの歪度の計算
+# apply:DataFrameの軸に沿って適用
+skewed_feats = df_train[non_categoricals].apply(lambda x: skew(x.dropna()))
+#print(skewed_feats > 0.6)
+skewed_feats = skewed_feats[skewed_feats > 0.6].index
+#歪度0.6より大きい特徴量を対数変換
+df_all[skewed_feats] = np.log1p(df_all[skewed_feats])
+
+#One Hot Encoding
+df_all = pd.get_dummies(df_all)
+#欠損値を平均値で補完
+df_all = df_all.fillna(df_all.mean())
+(抜粋終わり)
+
+fillna()
+参考：Python Data Science Handbook p.126
+
+Scaling
+MinMaxScaler()：データが0~1に入るよう変換
+StandardScaler()：平均0、分散1になるように変換
+RobustScaler()：データポイントを、中央値が0になり、四分位範囲が1になるように移動・スケール変換する。
+参考：https://qiita.com/unhurried/items/7a79d2f3574fb1d0cc27
+参考：Introduction to Machine Learning with Python p.138
+
+分割されているファイルを合併
+pd.concat()
+pd.Merge()
+df.join()
+
+UCI Machine Learning Repojitory
+機械学習の研究・学習用のデータセットリポジトリ
+https://archive.ics.uci.edu/ml/index.php
+
+畳み込みニューラルネットワークの最新研究動向(～2017)
+https://qiita.com/yu4u/items/7e93c454c9410c4b5427
+Inception ResNet (Residual Networks)
+岡留さんが、Kaggle Competition 
+"Google Analytics Customer Revenue Prediction"
+https://www.kaggle.com/c/ga-customer-revenue-prediction
+で適用
+
+ランダムフォレストにおける変数重要度の抽出について
+feature_importance_
+t検定におけるp値との違いについて?
+参考：https://qiita.com/TomokIshii/items/290adc16e2ca5032ca07
+
+
