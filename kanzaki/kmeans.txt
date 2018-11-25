@@ -1,0 +1,39 @@
+Principal Component Analysis with KMeans visuals
+・PCA(主成分分析)
+・Clusteringは特長量削減に使用
+・Clustering前にStandardizeが必要->クラスタが適切に分かれるように
+・クラスタリング対象のパラメータは、特異値が大きなものから順に並べて、累積90%以上になる特長量数で切る
+　その値がVariance explained(どのくらいの情報量が失われたか)
+・PCAで次元削減し、その後Kmeansでクラスタリング
+
+Aggregates + SumValues + SumZeros + K-Means + PCA
+・Predict the value of transactions for potential customers.
+・銀行のお金のやりとりの額を予測
+・クラスタ数がわからないので2~11で全部計算
+・各クラスタ数で分類した場合のクラスタ番号を列として追加
+・PCAで主成分分析する前にクラスタ番号を振っておくことで主成分分析しやすくしている？
+・LightGBMでツリー回帰分析
+　->PCAやクラスタ番号でツリーが分かれることを期待？
+
+Clustering wines with k-means
+・Normalize
+・クラスタ間の距離の和はクラスタ数を増やすと徐々に増えていって収束する
+　クラスタ内の点と重心との距離の和はクラスタ数を増やすと徐々に減っていって収束する
+　->収束しそうになったクラスタ数が分類数としてよさげなところ
+
+Visualizing K-Means with Leaf Dataset
+・葉を形から分類
+・クラスタの中心からの距離でヒートマップ
+・クラスタ数を多くするほど特定の葉の形が現れる
+・クラスタ分類する前に使われるPCAやMDSは線形変換
+　->非線形な構造を持っているデータに対しては適切に次元圧縮できない
+　->t-SNE(t-distributed Stochastic Neighbor Embedding)
+https://qiita.com/stfate/items/8988d01aad9596f9d586
+    可視化のための手法(2,3次元への圧縮のみ可能)
+　　正規分布より広がったsutudent's t-distributionで写像することで、
+　　近い点を近く、遠い点をより遠くに離す効果がある
+
+Cluster Analysis of Whisky Reviews using k-means
+・Elbow法:クラスタ内のSSE(Square Sum Error)が収束するところが最適クラスタ数
+・Silhouette法:他のクラスターの点と比べて、その点が自身のクラスター内の他の点にどれくらい相似しているかを示す
+　　　　　　　 均等に分かれているときに値が似通う

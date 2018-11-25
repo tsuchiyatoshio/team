@@ -69,3 +69,8 @@ https://spjai.com/ensemble-learning/
 【入門】アンサンブル学習の代表的な２つの手法とアルゴリズム
 https://spjai.com/ensemble-learning/
 
+クロス・バリデーション (K-fold)
+https://qiita.com/19930404/items/09ddbe506d0e4ab0e10c
+
+A Kaggle Master Explains Gradient Boosting
+http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/
