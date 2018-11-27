@@ -1,0 +1,34 @@
+決定木におけるバギングとブースティング
+
+
+K-meansクラスタリング
+まず、StandardScalerをかける。
+次に、特性数が多い場合には、次元削減を行う。
+1. PCA(主成分分析)
+2. MDS(多次元尺度構成法)
+(上記1., 2.について)
+  →高次元空間上で非線形構造を持っているデータに対しては適切な低次元表現が得られない
+  →「類似するものを近くに配置する」ことよりも「類似しないものを遠くに配置する」ことを優先するようアルゴリズムが働く
+3. t-SNE(t-distributed Stochastic Neighbor Embedding)
+  →非線形な構造を持っているデータの次元圧縮。可視化の手法のため、通常は2or3次元への圧縮に用いる。
+参照：https://qiita.com/stfate/items/8988d01aad9596f9d586
+MNISTデータセットも、PCAではクラスタリングできなかったが、t-SNEではできるようになる。
+参照：Introduction to Machine Learning with Python, p.168-169
+
+
+適切なクラスタ数をどのようにして決めるのか？
+1. Elbow法
+  →クラスタ内のSSEが収束するところが最適クラスタ数。※SSE(Sum of Squared Error)：残差平方和
+2. Silhouette法
+  →他のクラスターの点と比べて、その点が自身のクラスター内の他の点にどれくらい相似しているかを示す。
+  →均等に分かれているときに値が似通う。
+
+
+DBSCAN
+densityに基づいてクラスタリング
+アルゴリズムの概要
+参照：https://qiita.com/takechanman1228/items/c7f23873c087630bab18
+このアルゴリズムを適用することにより、"two moons"データセットのような対象でも、適切に
+クラスタリングできるようになる。
+参照：Introduction to Machine Learning with Python, p.193
+
