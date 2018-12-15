@@ -1,0 +1,7 @@
+﻿■ PC環境
+ - OS: Anacondaをインストール可能なWindows, Linux, Mac
+ - CPU：Core i5以上推奨
+ - メモリ: 8GB以上推奨
+■ ライブラリ
+　scikit-learn 0.20.0以上
+  それ以外はanacondaに同梱
