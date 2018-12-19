@@ -1,0 +1,10 @@
+Anaconda Promptから wordcloud をインストールする。
+ conda install -c conda-forge wordcloud
+
+Anaconda Promptから pythonのシェルを起動する
+
+シェル上で次のようにし、NLTK Downloaderを起動する。
+>>> import nltk
+>>> nltk.download()
+
+NLTK Downloaderでall-corporaを選択し、ダウンロードする。
